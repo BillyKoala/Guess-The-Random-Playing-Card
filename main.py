@@ -38,7 +38,6 @@ def main():
     card_image_path = rpc.card_image_path
     card_suits_image_path = rpc.card_suits_image_path
 
-
     # Print the random card for testing purposes.
     print(f"Random Card: {rpc.card_id}")
 
@@ -81,32 +80,40 @@ def main():
         matrix_info_frame = Frame(matrix_frame, width=385, height=60, background="green",
         highlightbackground="#3275a8", highlightthickness=3)
         matrix_info_frame.place(x=7, y=9)
+        
         # Add a welcome banner.
         welcome_info_label = Label(matrix_info_frame, text=info_label_dict.get("header"),
         relief="raised", font=("Arial Black", 11), bg="#1753b3", fg="#b0b317")
         welcome_info_label.pack(padx=125)
+        
         # Add an updatable banner.
         hint_info_label = Label(matrix_info_frame, text=info_label_dict.get("before"),
         fg="#b0b317", relief="raised", font=("Arial Black", 9), bg="#1753b3", width=60)
         hint_info_label.pack(pady=4)
         globals.hint_info_label = hint_info_label
+        
         # Add menus here.
         bk_menu = Menu(root)
         root.config(menu=bk_menu)
+        
         # Options Menu & separated sub options.
         file_menu = Menu(bk_menu)
         bk_menu.add_cascade(label="Options", menu=file_menu)
         file_menu.add_command(label="Play It Again, Sam", command=lambda: thread_clear_the_deck(hint_info_label))
         file_menu.add_separator()
         file_menu.add_command(label="Jeez, I\'ve Had Enough!", command=lambda:quit_game(root))
+        
         # About Menu
         file_menu = Menu(bk_menu)
         bk_menu.add_cascade(label="About", menu=file_menu)
         file_menu.add_command(label="Game Developer", command=lambda: game_developer_window(root))
+        
         # Show the Joker Playing Card (left-hand side).
         show_playing_card(joker_image_path)
+        
         # Show the card suits image (right-hand side).
         show_card_suits(card_suits_image_path)
+        
         # Populate the window with 52 playing cards from left to right.
         thread_insert_playing_card_matrix(hint_info_label)
 
