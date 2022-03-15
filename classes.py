@@ -7,9 +7,6 @@ This is the classes.py file created to reference
 the one single user-defined class in this project.
 """
 
-from tkinter import *
-from tkinter import messagebox
-from PIL import Image, ImageTk
 import globals
 from constants import *
 
