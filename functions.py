@@ -432,8 +432,6 @@ def get_player_hint(selected_card):
         random_card_number_index = card_number_array.index(random_card_number)
         random_card_suit_index = card_suit_array.index(random_card_suit)
 
-        num_or_pic = "Right Picture Card" if random_card_number in picture_cards_array else "Right Card Number"
-
         # Check the selected card number and suit.
         if player_card_suit in card_suit_array:
             if player_card_suit == "S":
@@ -482,6 +480,8 @@ def get_player_hint(selected_card):
         Generate a list of hints for the player, or congratulate
         them on selecting the card correctly first time round.
         """
+        num_or_pic = "Right Picture Card" if random_card_number in picture_cards_array else "Right Card Number"
+        
         hint_list = ["Correct Suit, Go Higher", "Correct Suit, Go Lower ",
                      "Incorrect Suit, Go Higher", "Incorrect Suit, Go Lower",
                      f"{num_or_pic}, Wrong Suit"]
